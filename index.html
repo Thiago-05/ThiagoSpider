@@ -1,4 +1,568 @@
-ThiagoSpider-site/
-  index.html
-  assets/
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#c1121f" />
+  <title>Thiago Spider • Portfólio</title>
+  <meta name="description" content="Thiago Santos Daniel (Thiago Spider) — TI/Programação, Processos, Powerlifting (IPF) e Conteúdo de Cinema." />
 
+  <meta property="og:title" content="Thiago Spider • Portfólio" />
+  <meta property="og:description" content="TI/Programação • Processos • Powerlifting (IPF) • Cinema & Conteúdo" />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --text:#e9eefc;
+      --muted:#b7c2e6;
+      --red:#c1121f;
+      --red2:#ff2a3a;
+      --blue:#1d4ed8;
+      --blue2:#60a5fa;
+      --line:rgba(255,255,255,.08);
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 10% -10%, rgba(193,18,31,.35), transparent 60%),
+        radial-gradient(900px 600px at 100% 0%, rgba(29,78,216,.35), transparent 60%),
+        radial-gradient(900px 600px at 70% 120%, rgba(96,165,250,.18), transparent 55%),
+        linear-gradient(180deg, #05060b 0%, #06071a 50%, #05060b 100%);
+      overflow-x:hidden;
+    }
+
+    /* teia sutil */
+    body:before{
+      content:"";
+      position:fixed;
+      inset:-40px;
+      pointer-events:none;
+      opacity:.18;
+      background:
+        linear-gradient(transparent 0 0),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 1px, transparent 1px 34px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 34px);
+      mask-image: radial-gradient(closest-side at 40% 20%, rgba(0,0,0,1), rgba(0,0,0,.2) 55%, transparent 70%);
+      filter: blur(.2px);
+      z-index:-1;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{width:min(var(--max), calc(100% - 40px)); margin:0 auto}
+
+    /* HERO */
+    .hero{padding:18px 0 10px;}
+    .heroCard{
+      border-radius: var(--radius2);
+      border:1px solid var(--line);
+      background:
+        radial-gradient(900px 360px at 10% 10%, rgba(193,18,31,.36), transparent 60%),
+        radial-gradient(900px 360px at 95% 30%, rgba(29,78,216,.36), transparent 60%),
+        linear-gradient(180deg, rgba(11,15,30,.92), rgba(10,18,38,.92));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    /* banner opcional no fundo */
+    .heroCard::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: url("assets/banner.jpg") center/cover no-repeat;
+      opacity:.12;
+      filter: saturate(1.05) contrast(1.05);
+      pointer-events:none;
+      mix-blend-mode: screen;
+    }
+    .heroInner, .heroCard > *{position:relative; z-index:1;}
+
+    .heroInner{
+      padding:18px;
+      min-height: 88vh; /* social-first */
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      align-items:center;
+    }
+    @media (max-width: 860px){
+      .heroInner{grid-template-columns:1fr; min-height: unset;}
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      color: var(--muted);
+      background: rgba(255,255,255,.03);
+      font-size: 12px;
+      width: fit-content;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:50%;
+      background: linear-gradient(135deg, var(--red2), var(--blue2));
+      box-shadow: 0 0 18px rgba(255,42,58,.35);
+    }
+    h1{
+      margin:10px 0 8px;
+      font-size: clamp(26px, 4vw, 44px);
+      line-height:1.06;
+      letter-spacing:-.7px;
+    }
+    .sub{
+      color: var(--muted);
+      font-size: 14px;
+      line-height:1.5;
+      margin:0 0 10px;
+      max-width: 62ch;
+    }
+
+    /* FRASE - 1 linha + ... */
+    .quote{
+      margin: 10px 0 0;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      color: rgba(255,255,255,.85);
+      font-size: 13px;
+      line-height:1.45;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .kpiRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;}
+    .kpi{
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      min-width: 190px;
+      flex: 1;
+    }
+    .kpi .t{font-weight:900; font-size:13px}
+    .kpi .d{color:var(--muted); font-size:12px; margin-top:4px; line-height:1.35}
+
+    .hintScroll{
+      margin-top: 14px;
+      color: rgba(255,255,255,.65);
+      font-size: 12px;
+    }
+
+    /* SOCIAL FIRST */
+    .socialBig{display:grid; gap:10px;}
+    .socialMega{
+      border-radius: 22px;
+      border:1px solid rgba(255,255,255,.10);
+      padding:16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(193,18,31,.26), transparent 52%),
+        radial-gradient(circle at 85% 80%, rgba(29,78,216,.24), transparent 55%),
+        rgba(255,255,255,.02);
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      transform: translateY(0);
+      transition: .15s;
+    }
+    .socialMega:hover{transform: translateY(-1px); background: rgba(255,255,255,.03);}
+    .socialLeft{display:grid; gap:5px}
+    .socialPlat{font-weight:1000; letter-spacing:.2px; font-size: 18px;}
+    .socialHandle{color: var(--muted); font-size: 14px;}
+    .socialCTA{
+      padding:12px 14px;
+      border-radius: 16px;
+      font-weight: 900;
+      font-size: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(135deg, rgba(193,18,31,.88), rgba(29,78,216,.80));
+      white-space:nowrap;
+    }
+
+    /* Sections */
+    section{padding: 14px 0}
+    .grid2{display:grid; grid-template-columns: 1fr 1fr; gap:14px;}
+    @media (max-width: 860px){ .grid2{grid-template-columns:1fr} }
+
+    .card{
+      border-radius: 18px;
+      border:1px solid var(--line);
+      background: rgba(11,15,30,.72);
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      padding: 16px;
+    }
+    .card h2{margin:0 0 8px; font-size:16px; letter-spacing:.2px;}
+    .p{margin:0; color:var(--muted); font-size:14px; line-height:1.55}
+
+    .list{margin:10px 0 0; padding:0; list-style:none; display:grid; gap:8px;}
+    .li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:10px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.07);
+      background: rgba(255,255,255,.02);
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      color: var(--muted);
+      font-size: 12px;
+      width: fit-content;
+    }
+
+    /* GALERIA (com destaque na primeira imagem) */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+      margin-top:10px;
+    }
+    @media (max-width: 860px){
+      .gallery{ grid-template-columns: repeat(2, 1fr); }
+    }
+    .gallery img{
+      width:100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      display:block;
+    }
+    .gallery img.featured{
+      grid-column: span 2;
+      height: 300px;
+    }
+    @media (max-width: 860px){
+      .gallery img.featured{
+        grid-column: span 2;
+        height: 260px;
+      }
+    }
+
+    /* CTA PIX MAIS DESTACADO */
+    .ctaPix{
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.14);
+      background:
+        radial-gradient(600px 220px at 10% 20%, rgba(255,42,58,.30), transparent 60%),
+        radial-gradient(600px 220px at 90% 80%, rgba(96,165,250,.22), transparent 60%),
+        linear-gradient(180deg, rgba(11,15,30,.90), rgba(10,18,38,.90));
+      box-shadow: 0 26px 85px rgba(0,0,0,.55);
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ctaPix h2{
+      font-size: 18px;
+      margin: 0 0 8px;
+      letter-spacing:.2px;
+    }
+    .pixRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      margin-top: 12px;
+    }
+    .pixKey{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      border-radius: 16px;
+      padding: 12px 12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      font-size: 13px;
+      color: rgba(255,255,255,.9);
+      width: fit-content;
+      max-width: 100%;
+    }
+    .btnPrimary{
+      cursor:pointer;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius: 16px;
+      padding: 12px 14px;
+      font-weight: 900;
+      font-size: 13px;
+      color: var(--text);
+      background: linear-gradient(135deg, rgba(193,18,31,.92), rgba(29,78,216,.82));
+    }
+    .btnPrimary:hover{filter: brightness(1.05); transform: translateY(-1px); transition:.15s}
+
+    footer{padding: 18px 0 30px; color:var(--muted); font-size:12px}
+    .foot{
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;
+      border-top:1px solid var(--line);
+      padding-top: 16px;
+    }
+
+    .toast{
+      position:fixed;
+      left:50%;
+      bottom:18px;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,.72);
+      border:1px solid rgba(255,255,255,.12);
+      color: var(--text);
+      padding:10px 12px;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      opacity:0;
+      pointer-events:none;
+      transition:.18s;
+      font-size: 13px;
+      z-index:99;
+    }
+    .toast.show{opacity:1}
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="heroCard">
+        <div class="heroInner">
+
+          <div>
+            <div class="tag"><span class="dot"></span> Barueri • São Paulo</div>
+            <h1>Thiago Santos Daniel <span style="opacity:.85">(Thiago Spider)</span></h1>
+            <p class="sub">TI/Programação • Processos • Atleta de Powerlifting (IPF) • Cinema & Conteúdo</p>
+
+            <div class="kpiRow">
+              <div class="kpi">
+                <div class="t">Powerlifting (IPF)</div>
+                <div class="d">Campeão paulista e brasileiro</div>
+              </div>
+              <div class="kpi">
+                <div class="t">Concentrix</div>
+                <div class="d">SME (Processos) • Top Performer (2º tri/2024)</div>
+              </div>
+              <div class="kpi">
+                <div class="t">Mercado Livre</div>
+                <div class="d">Picking e packing (Jun–Dez/2025)</div>
+              </div>
+            </div>
+
+            <div class="quote">“Com grandes poderes, vêm grandes responsabilidades.”</div>
+            <div class="hintScroll">👇 Role para ver projetos, skills, galeria e apoio no Powerlifting</div>
+          </div>
+
+          <div class="socialBig" aria-label="Redes em destaque">
+            <a class="socialMega" href="https://www.instagram.com/_thiagospider/" target="_blank" rel="noreferrer">
+              <div class="socialLeft">
+                <div class="socialPlat">Instagram</div>
+                <div class="socialHandle">@_thiagospider</div>
+              </div>
+              <div class="socialCTA">Abrir</div>
+            </a>
+
+            <a class="socialMega" href="https://www.tiktok.com/@_thiagospider" target="_blank" rel="noreferrer">
+              <div class="socialLeft">
+                <div class="socialPlat">TikTok</div>
+                <div class="socialHandle">@_thiagospider</div>
+              </div>
+              <div class="socialCTA">Abrir</div>
+            </a>
+
+            <a class="socialMega" href="https://www.youtube.com/@_ThiagoSpider" target="_blank" rel="noreferrer">
+              <div class="socialLeft">
+                <div class="socialPlat">YouTube</div>
+                <div class="socialHandle">@_ThiagoSpider</div>
+              </div>
+              <div class="socialCTA">Abrir</div>
+            </a>
+
+            <div class="card" style="padding:14px">
+              <div class="badge" style="margin-bottom:10px">Links extras</div>
+              <div class="p" style="margin-bottom:10px">Hub: <b>linktr.ee/_ThiagoSpider</b></div>
+
+              <div class="kpiRow" style="margin-top:0">
+                <a class="badge" href="https://linktr.ee/_ThiagoSpider" target="_blank" rel="noreferrer">Linktree</a>
+                <a class="badge" href="https://letterboxd.com/_THIAGOSPIDER/" target="_blank" rel="noreferrer">Letterboxd</a>
+                <a class="badge" href="https://www.linkedin.com/in/thiago-daniel" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a class="badge" href="https://www.tiktok.com/@cortesspideroficial" target="_blank" rel="noreferrer">TikTok (Cortes)</a>
+                <a class="badge" href="https://www.instagram.com/cortesspideroficial/" target="_blank" rel="noreferrer">Instagram (Cortes)</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section>
+      <div class="grid2">
+        <div class="card">
+          <h2>Sobre</h2>
+          <p class="p">
+            Técnico em Informática com experiência em processos (Concentrix) e logística (Mercado Livre).
+            No esporte, já pratiquei <b>basquete</b>, <b>handebol</b> e <b>natação</b> e hoje foco no <b>powerlifting (IPF)</b>.
+            Também sou apaixonado por <b>cinema</b> e criação de conteúdo.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Destaques</h2>
+          <ul class="list">
+            <li class="li">🏆 <div><b>Campeão paulista e brasileiro</b> — Powerlifting (IPF)</div></li>
+            <li class="li">⭐ <div><b>Top Performer</b> — Concentrix (2º trimestre/2024)</div></li>
+            <li class="li">📈 <div>Atuação como <b>SME (Processos)</b> no projeto Familhão</div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <h2>Projetos</h2>
+        <p class="p">Alguns trabalhos que representam minha evolução em TI e criação.</p>
+
+        <div class="grid2" style="margin-top:10px">
+          <div class="li" style="flex-direction:column">
+            <div class="badge">Projeto próprio</div>
+            <div><b>Meu Portfólio (este site)</b></div>
+            <div class="p">Site responsivo com tema Spider-Man, foco em perfil, redes e apoio via PIX.</div>
+          </div>
+
+          <div class="li" style="flex-direction:column">
+            <div class="badge">Agência de Turismo</div>
+            <div><b>Site + Templates — F&F Travel</b></div>
+            <div class="p">Criação de estrutura de site e templates para comunicação/marketing da empresa.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="grid2">
+        <div class="card">
+          <h2>Skills (TI)</h2>
+          <div class="kpiRow">
+            <div class="badge">HTML</div>
+            <div class="badge">CSS</div>
+            <div class="badge">JavaScript</div>
+            <div class="badge">SQL</div>
+            <div class="badge">MySQL</div>
+            <div class="badge">Banco de Dados</div>
+          </div>
+          <p class="p" style="margin-top:10px">
+            Base em desenvolvimento web e dados, com mentalidade de processo e constância de atleta.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Contato</h2>
+          <div class="kpiRow">
+            <a class="badge" href="https://wa.me/5511910825718?text=Oi%20Thiago!%20Vi%20seu%20site%20e%20queria%20falar%20com%20voc%C3%AA." target="_blank" rel="noreferrer">WhatsApp</a>
+            <a class="badge" href="mailto:thiagospiderwork@gmail.com">thiagospiderwork@gmail.com</a>
+            <a class="badge" href="https://www.linkedin.com/in/thiago-daniel" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="badge" href="https://linktr.ee/_ThiagoSpider" target="_blank" rel="noreferrer">Linktree</a>
+          </div>
+          <p class="p" style="margin-top:10px">PIX: <b>thiagospiderwork@gmail.com</b></p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <h2>Galeria</h2>
+        <p class="p">Momentos no esporte, rotina e cinema.</p>
+
+        <div class="gallery">
+          <img class="featured" src="assets/medalhas.jpg" alt="Medalhas e troféus" loading="lazy">
+          <img src="assets/squat.jpg" alt="Powerlifting - agachamento" loading="lazy">
+          <img src="assets/time.jpg" alt="Equipe / campeonato" loading="lazy">
+          <img src="assets/eu.jpg" alt="Foto pessoal" loading="lazy">
+          <img src="assets/eu-02.jpg" alt="Foto pessoal 2" loading="lazy">
+          <img src="assets/cinema.jpg" alt="Cinema" loading="lazy">
+          <img src="assets/galeria-01.jpg" alt="Foto extra" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="ctaPix">
+        <h2>Apoie minha jornada no Powerlifting</h2>
+        <p class="p">Se quiser apoiar meus treinos, viagens e competições, qualquer valor ajuda demais.</p>
+
+        <div class="pixRow">
+          <div class="pixKey"><b>PIX (chave e-mail):</b> <span>thiagospiderwork@gmail.com</span></div>
+          <button class="btnPrimary" type="button" onclick="copyPix()">Copiar PIX</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="container">
+    <div class="foot">
+      <div>© <span id="year"></span> Thiago Spider • Portfólio</div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap">
+        <span class="badge">Instagram/TikTok: @_thiagospider • YouTube: @_ThiagoSpider</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">Copiado!</div>
+
+  <script>
+    const PIX = "thiagospiderwork@gmail.com";
+
+    function showToast(msg){
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      setTimeout(()=>t.classList.remove("show"), 1200);
+    }
+
+    async function copyPix(){
+      try{
+        await navigator.clipboard.writeText(PIX);
+        showToast("PIX copiado!");
+      }catch(e){
+        const inp = document.createElement("input");
+        inp.value = PIX;
+        document.body.appendChild(inp);
+        inp.select();
+        document.execCommand("copy");
+        inp.remove();
+        showToast("PIX copiado!");
+      }
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
