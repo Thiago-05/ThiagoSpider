@@ -72,18 +72,6 @@
       overflow:hidden;
       position:relative;
     }
-
-    /* banner opcional no fundo */
-    .heroCard::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: url("assets/banner.jpg") center/cover no-repeat;
-      opacity:.12;
-      filter: saturate(1.05) contrast(1.05);
-      pointer-events:none;
-      mix-blend-mode: screen;
-    }
     .heroInner, .heroCard > *{position:relative; z-index:1;}
 
     .heroInner{
@@ -92,7 +80,7 @@
       display:grid;
       grid-template-columns: 1.1fr .9fr;
       gap:16px;
-      align-items:center;
+      align-items:start;
     }
     @media (max-width: 860px){
       .heroInner{grid-template-columns:1fr; min-height: unset;}
@@ -236,37 +224,46 @@
       width: fit-content;
     }
 
-    /* ✅ GALERIA (Opção 1: NÃO cortar — mostrar inteira) */
-    .gallery{
+    /* ✅ MOSAICO no TOPO (banner com todas as imagens) */
+    .mosaic{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:10px;
-      margin-top:10px;
+      grid-template-columns: 1.2fr .9fr;
+      gap:12px;
+      margin-top: 12px;
     }
     @media (max-width: 860px){
-      .gallery{ grid-template-columns: repeat(2, 1fr); }
+      .mosaic{ grid-template-columns: 1fr; }
     }
-    .gallery img{
+    .mosaicBig{
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      overflow:hidden;
+      min-height: 280px;
+    }
+    .mosaicBig img{
       width:100%;
-      height: 220px;
-      object-fit: contain;          /* mostra inteira */
-      background: rgba(0,0,0,.22);  /* fundo pra “sobras” */
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,.08);
+      height:100%;
+      object-fit: cover;
       display:block;
-      padding: 8px;
     }
-    .gallery img.featured{
-      grid-column: span 2;
-      height: 320px;
-      object-fit: contain;
-      padding: 10px;
+    .mosaicGrid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:12px;
     }
-    @media (max-width: 860px){
-      .gallery img.featured{
-        grid-column: span 2;
-        height: 260px;
-      }
+    .mosaicTile{
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      overflow:hidden;
+      min-height: 130px;
+    }
+    .mosaicTile img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
     }
 
     /* CTA PIX MAIS DESTACADO */
@@ -375,7 +372,23 @@
             </div>
 
             <div class="quote">“Com grandes poderes, vêm grandes responsabilidades.”</div>
-            <div class="hintScroll">👇 Role para ver projetos, skills, galeria e apoio no Powerlifting</div>
+            <div class="hintScroll">👇 Role para ver projetos, skills e apoio no Powerlifting</div>
+
+            <!-- ✅ Banner com todas as imagens (mosaico) -->
+            <div class="mosaic" aria-label="Fotos em destaque">
+              <div class="mosaicBig">
+                <img src="assets/medalhas.jpg" alt="Medalhas e troféus" loading="lazy">
+              </div>
+
+              <div class="mosaicGrid">
+                <div class="mosaicTile"><img src="assets/squat.jpg" alt="Agachamento" loading="lazy"></div>
+                <div class="mosaicTile"><img src="assets/time.jpg" alt="Time / campeonato" loading="lazy"></div>
+                <div class="mosaicTile"><img src="assets/eu.jpg" alt="Foto pessoal" loading="lazy"></div>
+                <div class="mosaicTile"><img src="assets/eu-02.jpg" alt="Foto pessoal 2" loading="lazy"></div>
+                <div class="mosaicTile"><img src="assets/cinema.jpg" alt="Cinema" loading="lazy"></div>
+                <div class="mosaicTile"><img src="assets/galeria-01.jpg" alt="Foto extra" loading="lazy"></div>
+              </div>
+            </div>
           </div>
 
           <div class="socialBig" aria-label="Redes em destaque">
@@ -494,23 +507,6 @@
             <a class="badge" href="https://linktr.ee/_ThiagoSpider" target="_blank" rel="noreferrer">Linktree</a>
           </div>
           <p class="p" style="margin-top:10px">PIX: <b>thiagospiderwork@gmail.com</b></p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="card">
-        <h2>Galeria</h2>
-        <p class="p">Momentos no esporte, rotina e cinema.</p>
-
-        <div class="gallery">
-          <img class="featured" src="assets/medalhas.jpg" alt="Medalhas e troféus" loading="lazy">
-          <img src="assets/squat.jpg" alt="Powerlifting - agachamento" loading="lazy">
-          <img src="assets/time.jpg" alt="Equipe / campeonato" loading="lazy">
-          <img src="assets/eu.jpg" alt="Foto pessoal" loading="lazy">
-          <img src="assets/eu-02.jpg" alt="Foto pessoal 2" loading="lazy">
-          <img src="assets/cinema.jpg" alt="Cinema" loading="lazy">
-          <img src="assets/galeria-01.jpg" alt="Foto extra" loading="lazy">
         </div>
       </div>
     </section>
