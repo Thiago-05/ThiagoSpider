@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#c1121f" />
   <title>Thiago Spider • Portfólio</title>
-  <meta name="description" content="Thiago Daniel (Thiago Spider) — TI/Programação, Logística, Powerlifting (IPF) e Conteúdo de Cinema." />
+  <meta name="description" content="Thiago Spider — TI/Programação, Powerlifting (IPF) e Cinéfilo & Conteúdo." />
 
   <meta property="og:title" content="Thiago Spider • Portfólio" />
-  <meta property="og:description" content="TI/Programação • Powerlifting (IPF) • Cinema & Conteúdo" />
+  <meta property="og:description" content="TI/Programação • Powerlifting (IPF) • Cinéfilo & Conteúdo" />
   <meta property="og:type" content="website" />
 
   <style>
@@ -16,9 +16,7 @@
       --text:#e9eefc;
       --muted:#b7c2e6;
       --red:#c1121f;
-      --red2:#ff2a3a;
       --blue:#1d4ed8;
-      --blue2:#60a5fa;
       --line:rgba(255,255,255,.08);
       --shadow: 0 18px 60px rgba(0,0,0,.55);
       --radius: 18px;
@@ -86,10 +84,10 @@
 
     h1{
       margin:6px 0 8px;
-      font-size: clamp(26px, 4vw, 44px);
       line-height:1.06;
       letter-spacing:-.7px;
     }
+
     .sub{
       color: var(--muted);
       font-size: 14px;
@@ -98,6 +96,7 @@
       max-width: 62ch;
     }
 
+    /* ✅ Não corta mais no celular */
     .quote{
       margin: 10px 0 0;
       padding: 10px 12px;
@@ -107,11 +106,10 @@
       color: rgba(255,255,255,.85);
       font-size: 13px;
       line-height:1.45;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
       max-width: 100%;
-      width: 100%;
     }
 
     .kpiRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;}
@@ -319,6 +317,17 @@
       z-index:99;
     }
     .toast.show{opacity:1}
+
+    /* ✅ Ajustes mobile */
+    @media (max-width: 480px){
+      .heroInner{ padding: 14px; }
+      .sub{ font-size: 13px; }
+      .kpi{ min-width: 150px; }
+      .socialMega{ padding: 14px; }
+      .socialCTA{ padding: 10px 12px; font-size: 13px; }
+      .mosaicBig{ min-height: 220px; }
+      .mosaicTile{ min-height: 110px; }
+    }
   </style>
 </head>
 
@@ -329,14 +338,16 @@
         <div class="heroInner">
 
           <div>
-            <h1 style="margin-bottom:6px;">Thiago Daniel</h1>
-<div style="font-weight:1000; font-size:18px; color: rgba(255,255,255,.88); margin-bottom:6px;">
-  Thiago Spider
-</div>
-<p class="sub">TI/Programação • Atleta de Powerlifting (IPF) • Cinéfilo & Conteúdo</p>
+            <!-- TOPOS (maiores) -->
+            <h1 style="margin-bottom:8px; font-size: clamp(34px, 6vw, 56px);">
+              Thiago Daniel
+            </h1>
 
+            <div style="font-weight:1000; font-size: clamp(22px, 4.2vw, 32px); color: rgba(255,255,255,.90); margin-bottom:8px;">
+              Thiago Spider
+            </div>
 
-
+            <p class="sub">TI/Programação • Atleta de Powerlifting (IPF) • Cinéfilo & Conteúdo</p>
 
             <div class="kpiRow">
               <div class="kpi">
@@ -356,6 +367,7 @@
             <div class="quote">“Com grandes poderes, vêm grandes responsabilidades.”</div>
             <div class="hintScroll">👇 Role para ver projetos, skills e apoio no Powerlifting</div>
 
+            <!-- MOSAICO DE IMAGENS -->
             <div class="mosaic" aria-label="Fotos em destaque">
               <div class="mosaicBig">
                 <img src="assets/medalhas.jpg" alt="Medalhas e troféus" loading="lazy">
@@ -372,6 +384,7 @@
             </div>
           </div>
 
+          <!-- REDES EM DESTAQUE -->
           <div class="socialBig" aria-label="Redes em destaque">
             <a class="socialMega" href="https://www.instagram.com/_thiagospider/" target="_blank" rel="noreferrer">
               <div class="socialLeft">
@@ -433,7 +446,7 @@
           <h2>Destaques</h2>
           <ul class="list">
             <li class="li">🏆 <div><b>Campeão paulista e brasileiro</b> — Powerlifting (IPF)</div></li>
-            <li class="li">⭐ <div><b>Top Performer</b> — Concentrix (2º trimestre/2024)</div></li>
+            <li class="li">⭐ <div><b>Top Performer</b> — Concentrix (2º tri/2024)</div></li>
             <li class="li">📈 <div>Atuação como <b>SME</b> no projeto Familhão</div></li>
           </ul>
         </div>
@@ -544,4 +557,3 @@
   </script>
 </body>
 </html>
- 
