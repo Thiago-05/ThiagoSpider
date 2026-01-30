@@ -236,7 +236,7 @@
       width: fit-content;
     }
 
-    /* GALERIA (com destaque na primeira imagem) */
+    /* ✅ GALERIA (Opção 1: NÃO cortar — mostrar inteira) */
     .gallery{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -249,15 +249,18 @@
     .gallery img{
       width:100%;
       height: 220px;
-      object-fit: cover;
+      object-fit: contain;          /* mostra inteira */
+      background: rgba(0,0,0,.22);  /* fundo pra “sobras” */
       border-radius: 16px;
       border:1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.02);
       display:block;
+      padding: 8px;
     }
     .gallery img.featured{
       grid-column: span 2;
-      height: 300px;
+      height: 320px;
+      object-fit: contain;
+      padding: 10px;
     }
     @media (max-width: 860px){
       .gallery img.featured{
