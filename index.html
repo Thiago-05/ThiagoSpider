@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#c1121f" />
   <title>Thiago Spider • Portfólio</title>
-  <meta name="description" content="Thiago Santos Daniel (Thiago Spider) — TI/Programação, Processos, Powerlifting (IPF) e Conteúdo de Cinema." />
+  <meta name="description" content="Thiago Daniel (Thiago Spider) — TI/Programação, Logística, Powerlifting (IPF) e Conteúdo de Cinema." />
 
   <meta property="og:title" content="Thiago Spider • Portfólio" />
-  <meta property="og:description" content="TI/Programação • Processos • Powerlifting (IPF) • Cinema & Conteúdo" />
+  <meta property="og:description" content="TI/Programação • Powerlifting (IPF) • Cinema & Conteúdo" />
   <meta property="og:type" content="website" />
 
   <style>
@@ -40,7 +40,6 @@
       overflow-x:hidden;
     }
 
-    /* teia sutil */
     body:before{
       content:"";
       position:fixed;
@@ -59,7 +58,6 @@
     a{color:inherit; text-decoration:none}
     .container{width:min(var(--max), calc(100% - 40px)); margin:0 auto}
 
-    /* HERO */
     .hero{padding:18px 0 10px;}
     .heroCard{
       border-radius: var(--radius2);
@@ -76,7 +74,7 @@
 
     .heroInner{
       padding:18px;
-      min-height: 88vh; /* social-first */
+      min-height: 88vh;
       display:grid;
       grid-template-columns: 1.1fr .9fr;
       gap:16px;
@@ -86,25 +84,8 @@
       .heroInner{grid-template-columns:1fr; min-height: unset;}
     }
 
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius: 999px;
-      border:1px solid var(--line);
-      color: var(--muted);
-      background: rgba(255,255,255,.03);
-      font-size: 12px;
-      width: fit-content;
-    }
-    .dot{
-      width:8px;height:8px;border-radius:50%;
-      background: linear-gradient(135deg, var(--red2), var(--blue2));
-      box-shadow: 0 0 18px rgba(255,42,58,.35);
-    }
     h1{
-      margin:10px 0 8px;
+      margin:6px 0 8px;
       font-size: clamp(26px, 4vw, 44px);
       line-height:1.06;
       letter-spacing:-.7px;
@@ -117,7 +98,6 @@
       max-width: 62ch;
     }
 
-    /* FRASE - 1 linha + ... */
     .quote{
       margin: 10px 0 0;
       padding: 10px 12px;
@@ -127,7 +107,6 @@
       color: rgba(255,255,255,.85);
       font-size: 13px;
       line-height:1.45;
-
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -153,7 +132,6 @@
       font-size: 12px;
     }
 
-    /* SOCIAL FIRST */
     .socialBig{display:grid; gap:10px;}
     .socialMega{
       border-radius: 22px;
@@ -185,7 +163,6 @@
       white-space:nowrap;
     }
 
-    /* Sections */
     section{padding: 14px 0}
     .grid2{display:grid; grid-template-columns: 1fr 1fr; gap:14px;}
     @media (max-width: 860px){ .grid2{grid-template-columns:1fr} }
@@ -224,7 +201,7 @@
       width: fit-content;
     }
 
-    /* ✅ MOSAICO no TOPO (banner com todas as imagens) */
+    /* MOSAICO */
     .mosaic{
       display:grid;
       grid-template-columns: 1.2fr .9fr;
@@ -266,7 +243,7 @@
       display:block;
     }
 
-    /* CTA PIX MAIS DESTACADO */
+    /* PIX */
     .ctaPix{
       border-radius: 22px;
       border: 1px solid rgba(255,255,255,.14);
@@ -352,9 +329,8 @@
         <div class="heroInner">
 
           <div>
-            <div class="tag"><span class="dot"></span> Brasil • São Paulo</div>
-            <h1>Thiago Santos Daniel <span style="opacity:.85">(Thiago Spider)</span></h1>
-            <p class="sub">TI/Programação • Processos • Atleta de Powerlifting (IPF) • Cinema & Conteúdo</p>
+            <h1>Thiago Daniel <span style="opacity:.85">(Thiago Spider)</span></h1>
+            <p class="sub">TI/Programação • Logística • Atleta de Powerlifting (IPF) • Cinema & Conteúdo</p>
 
             <div class="kpiRow">
               <div class="kpi">
@@ -363,7 +339,7 @@
               </div>
               <div class="kpi">
                 <div class="t">Concentrix</div>
-                <div class="d">SME (Processos) • Top Performer (2º tri/2024)</div>
+                <div class="d">Top Performer (2º tri/2024)</div>
               </div>
               <div class="kpi">
                 <div class="t">Mercado Livre</div>
@@ -374,7 +350,6 @@
             <div class="quote">“Com grandes poderes, vêm grandes responsabilidades.”</div>
             <div class="hintScroll">👇 Role para ver projetos, skills e apoio no Powerlifting</div>
 
-            <!-- ✅ Banner com todas as imagens (mosaico) -->
             <div class="mosaic" aria-label="Fotos em destaque">
               <div class="mosaicBig">
                 <img src="assets/medalhas.jpg" alt="Medalhas e troféus" loading="lazy">
@@ -417,13 +392,12 @@
             </a>
 
             <div class="card" style="padding:14px">
-              <div class="badge" style="margin-bottom:10px">Links extras</div>
-              <div class="p" style="margin-bottom:10px">Hub: <b>linktr.ee/_ThiagoSpider</b></div>
+              <h2 style="margin:0 0 10px; font-size:16px;">Links extras</h2>
 
               <div class="kpiRow" style="margin-top:0">
-                <a class="badge" href="https://linktr.ee/_ThiagoSpider" target="_blank" rel="noreferrer">Linktree</a>
                 <a class="badge" href="https://letterboxd.com/_THIAGOSPIDER/" target="_blank" rel="noreferrer">Letterboxd</a>
                 <a class="badge" href="https://www.linkedin.com/in/thiago-daniel" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a class="badge" href="https://open.spotify.com/user/ban_th?si=98ad6bcb3fc744de" target="_blank" rel="noreferrer">Spotify</a>
                 <a class="badge" href="https://www.tiktok.com/@cortesspideroficial" target="_blank" rel="noreferrer">TikTok (Cortes)</a>
                 <a class="badge" href="https://www.instagram.com/cortesspideroficial/" target="_blank" rel="noreferrer">Instagram (Cortes)</a>
               </div>
@@ -443,7 +417,7 @@
         <div class="card">
           <h2>Sobre</h2>
           <p class="p">
-            Técnico em Informática com experiência em processos (Concentrix) e logística (Mercado Livre).
+            Técnico em Informática com experiência em atendimento ao cliente (Concentrix) e logística (Mercado Livre).
             No esporte, já pratiquei <b>basquete</b>, <b>handebol</b> e <b>natação</b> e hoje foco no <b>powerlifting (IPF)</b>.
             Também sou apaixonado por <b>cinema</b> e criação de conteúdo.
           </p>
@@ -454,7 +428,7 @@
           <ul class="list">
             <li class="li">🏆 <div><b>Campeão paulista e brasileiro</b> — Powerlifting (IPF)</div></li>
             <li class="li">⭐ <div><b>Top Performer</b> — Concentrix (2º trimestre/2024)</div></li>
-            <li class="li">📈 <div>Atuação como <b>SME (Processos)</b> no projeto Familhão</div></li>
+            <li class="li">📈 <div>Atuação como <b>SME</b> no projeto Familhão</div></li>
           </ul>
         </div>
       </div>
@@ -494,7 +468,7 @@
             <div class="badge">Banco de Dados</div>
           </div>
           <p class="p" style="margin-top:10px">
-            Base em desenvolvimento web e dados, com mentalidade de processo e constância de atleta.
+            Base em desenvolvimento web e dados, com mentalidade de atleta.
           </p>
         </div>
 
@@ -504,7 +478,6 @@
             <a class="badge" href="https://wa.me/5511910825718?text=Oi%20Thiago!%20Vi%20seu%20site%20e%20queria%20falar%20com%20voc%C3%AA." target="_blank" rel="noreferrer">WhatsApp</a>
             <a class="badge" href="mailto:thiagospiderwork@gmail.com">thiagospiderwork@gmail.com</a>
             <a class="badge" href="https://www.linkedin.com/in/thiago-daniel" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="badge" href="https://linktr.ee/_ThiagoSpider" target="_blank" rel="noreferrer">Linktree</a>
           </div>
           <p class="p" style="margin-top:10px">PIX: <b>thiagospiderwork@gmail.com</b></p>
         </div>
